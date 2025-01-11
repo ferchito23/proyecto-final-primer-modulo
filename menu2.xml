@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <item id="inicio">
+        <es>INICIO</es>
+        <en>HOME</en>
+        <link>index.php</link>
+    </item>
+    <item id="empresa">
+        <es>LA EMPRESA</es>
+        <en>THE COMPANY</en>
+        <link>empresa.php</link>
+    </item>
+    <item id="operacion">
+        <es>OPERACION</es>
+         <en>OPERATION</en>
+        <link>operacion.php</link>
+    </item>
+    <item id="convocatoria">
+        <es>CONVOCATORIA</es>
+        <en>CALL</en>
+        <link>convocatoria.php</link>
+    </item>
+    <item id="compromiso">
+        <es>COMPROMISO SOCIAL Y AMBIENTAL</es>
+        <en>SOCIAL AND ENVIRONMENTAL COMMITMENT</en>
+        <link>compromiso.php</link>
+    </item>
+    <item id="politica">
+        <es>POLITICA</es>
+        <en>POLICY</en>
+        <link>politica.php</link>
+    </item>
+    <item id="contactos">
+        <es>CONTACTOS</es>
+        <en>CONTACTS</en>
+        <link>contactos.php</link>
+    </item>
+</menu>

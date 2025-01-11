@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial=scale=1.0">
+        <title>OPERACION CACHI TAMBO</title> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        </head>
+        <body class="bg-secondary-subtle" style="background-image: url(fondo6.jpeg);">
+          
+            <div class="container " >
+                <nav class="navbar navbar-expand-md fixed-top bg-secondary justify-content-end ">
+                    <div class="container-fluid " >
+                        <!--Menu principal-->
+                        </button>
+                        <a class="navbar-brand link-light mx-4" href="#"><img src="imag5.jpg" width="auto" height="60"></a>
+                        <select class="btn btn-secondary" id="idioma">
+                            <option value="es">español</option>
+                            <option value="en">ingles</option>
+                        </select>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon "></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                            <div class="navbar-nav " id="menu">
+                                <!--Aqui mi JSON-->
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            
+            
+        <!--<script>
+                const xhr=new XMLHttpRequest();
+          xhr.open("GET", "menu1.xml", true);
+          xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        const xmlDoc = xhr.responseXML;
+                        const items = xmlDoc.getElementsByTagName("item");
+                        let menuHTML="";
+                        for (let i = 0; i < items.length; i++) {
+                            const nombre = items[i].getElementsByTagName("nombre")[0].textContent;
+                            const link = items[i].getElementsByTagName("link")[0].textContent;
+
+                            menuHTML+=`
+                                <li class="nav-item">
+                                <a class="nav-link active link-light" aria-current="page" href="${link}" id="${nombre}">${nombre}</a>
+                                </li>
+                                `;
+                        }
+                        document.getElementById("menu").innerHTML=menuHTML;
+                    }
+                    else {
+                        console.error("Error");
+                    }
+                };
+                xhr.send();
+                
+            </script>
+        -->
+        <script>               
+            let xmlDoc = null;
+            // Función para cargar el archivo XML
+            function cargaXML(callback) {
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", "menu2.xml", true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        const parser = new DOMParser();
+                        xmlDoc = parser.parseFromString(xhr.responseText, "application/xml");
+                        callback();
+                    } else {
+                        console.error("No se pudo cargar el archivo XML.");
+                    }
+                };
+                xhr.send();
+            }
+        
+            // Función para cambiar el idioma del menú
+            function cambioLenguaje(lenguaje) {
+                if (!xmlDoc) return;
+        
+                const menu = document.getElementById("menu");
+                const items = xmlDoc.getElementsByTagName("item");
+                menu.innerHTML = "";
+        
+                Array.from(items).forEach(item => {
+                    const translationElement = item.getElementsByTagName(lenguaje)[0];
+                    const linkElement = item.getElementsByTagName("link")[0];
+        
+                    if (translationElement && linkElement) {
+                        const translation = translationElement.textContent;
+                        const link = linkElement.textContent;
+        
+                        // Crear elemento <li> y su <a>
+                        const li = document.createElement("li");
+                        li.classList.add("nav-item", "m-2"); 
+        
+                        const a = document.createElement("a");
+                        a.classList.add("nav-link", "active", "link-light"); 
+                        a.textContent = translation;
+                        a.href = link;
+        
+                        li.appendChild(a);
+                        menu.appendChild(li);
+                    } else {
+                        console.warn(`Falta información para el elemento con id "${item.getAttribute('id')}".`);
+                    }
+                });
+            }
+        
+            // Evento para cambiar el idioma dinámicamente
+            document.getElementById("idioma").addEventListener("change", (event) => {
+            cambioLenguaje(event.target.value);
+            });
+        
+            // Cargar el XML y establecer el idioma inicial
+            cargaXML(() => {
+            cambioLenguaje("es"); // Idioma predeterminado: Español
+            });
+        </script>
+         
+                

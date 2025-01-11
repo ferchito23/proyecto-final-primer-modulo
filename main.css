@@ -1,0 +1,79 @@
+	/*Estilos aplicados a todo*/
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: content-box;
+    }
+    /* Genericos*/
+    body {
+        font-family: Arial, sans-serif;
+        flex-direction: column;
+        display: flex;
+    }
+    /*Cabecera*/
+    header{
+        display :flex;
+        background-color: #f2d025;
+        color: white;
+        padding: 20px;
+        text-align: start;
+    }
+    
+    /*menu*/
+    navbar-brad{
+        background-color: #cfb406;
+        color: white;
+        padding: 10px;
+        text-align: center;
+      
+    }
+    
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        font-weight: bold;
+        display: inline-block;
+    }
+    nav a:hover {
+        color: #f0fc01;
+        transform: scale(1.2);
+    }
+    .contenido {
+        background-color: #e5f5ee;
+        color: #7a8344;
+        padding: 20px;
+        flex:1;
+    }
+    /*registro de datos*/
+    .registro{
+        background-color: rgb(223, 230, 232);
+        padding: 10px;
+        border-radius: 25px;
+        border: 2px solid #0f1901;
+        display: flex;
+        flex-direction: column;
+    }
+    .registro h3{
+        text-align: center;
+        padding: 5px;
+        
+    }
+    .registro label{
+        padding: 5px;
+    }
+    .nav-logo{
+        width: 200px;
+        height: 75px;
+        
+        }
+    .nav-logo1{
+        width: 500px;
+        height: 80px;
+    }
+    .titulo1{
+        text-align: end;
+    }
+            </style>
+        </head>
+ <body>
